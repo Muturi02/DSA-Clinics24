@@ -31,16 +31,17 @@ func (l *List)appendList(value int){
 	}
 }
 
-func (l List) printList(){
-	for l.len!=0{
-		fmt.Print(l.head.data)
-		l.head=l.head.next
-		l.len--
-		fmt.Print("-> ")
+func (l List) printList() {
+	current := l.head
+	for current != nil {
+		fmt.Print(current.data)
+		current = current.next
+		fmt.Print(" -> ")
 	}
 	fmt.Print(nil)
-	fmt.Println("")
+	fmt.Println()
 }
+
 func main(){
 	fmt.Println("Linked Lists...")
 	newList:= List{}
@@ -49,50 +50,3 @@ func main(){
 	newList.appendList(20)
 	newList.printList()
 }
-
-
-
-/* type Node struct {
-	data int
-	next *Node
-}
-
-type List struct {
-	head *Node
-	tail *Node
-}
-
-func newList() *List {
-	return &List{}
-}
-
-func (l *List) append(data int) {
-	newNode := &Node{data: data}
-	if l.tail != nil {
-		l.tail.next = newNode
-	}
-	l.tail = newNode
-	if l.head == nil {
-		l.head = newNode
-	}
-}
-
-func (l *List) display() {
-	current := l.head
-	for current != nil {
-		fmt.Printf("%d -> ", current.data)
-		current = current.next
-	}
-	fmt.Println("nil")
-}
-
-func main() {
-	fmt.Println("Linked Lists...")
-
-	list := newList()
-	list.append(10)
-	list.append(20)
-	list.append(30)
-
-	list.display()
-} */
